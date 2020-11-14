@@ -1,0 +1,2 @@
+Launch the drive_final.launch. It will launch the required nodes and run the rosserial node on jetson or use the two_arduino.launch file if you want to use both drive and arm at the same time.
+Build this drive package and make sure that source devel/setup.bash is echoed in the bashrc file else message creation will give error.

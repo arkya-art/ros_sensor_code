@@ -1,0 +1,14 @@
+<launch>
+  <node name="drive_joy" pkg="joy" type="joy_node">
+    <remap from="joy" to="joy_for_drive"/>
+    <param name="dev" value="/dev/input/js0" />
+  </node>
+  <!-- remap joy for arm -->
+  <node name="joy_remap1" pkg="joy" type="joy_remap.py">
+    <remap from="joy_in" to="joy_orig_drive"/>
+    <remap from="joy_out" to="joy_drive"/>
+    <param name="button_mapping" type="str" value="=" />
+    <param name="axis_mapping" type="str" value="=" />
+  </node>
+  <node name="drive_control" pkg="drive" type="sub_joynode_pub_roverdrive.py" />
+ </launch>
